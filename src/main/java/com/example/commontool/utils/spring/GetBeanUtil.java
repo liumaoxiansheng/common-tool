@@ -1,8 +1,12 @@
 package com.example.commontool.utils.spring;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,8 +15,10 @@ import org.springframework.stereotype.Component;
  * @Author: th_legend
  **/
 @Component
-public class GetBeanUtil implements ApplicationContextAware {
+public class GetBeanUtil implements ApplicationContextAware, BeanFactoryAware {
     private static ApplicationContext applicationContext = null;
+
+    private static ConfigurableListableBeanFactory beanFactory=null;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -59,6 +65,29 @@ public class GetBeanUtil implements ApplicationContextAware {
      * @return T 泛型
      */
     public static <T> T getBean(String name, Class<T> c) {
-        return getApplicationContext().getBean(name, c);
+        return applicationContext.getBean(name, c);
     }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        if (!(beanFactory instanceof ConfigurableListableBeanFactory)) {
+            throw new IllegalArgumentException(
+                    "AutowiredAnnotationBeanPostProcessor requires a ConfigurableListableBeanFactory: " + beanFactory);
+        }
+        System.out.println("TestBeanFactory.setBeanFactory()");
+        if (GetBeanUtil.beanFactory==null) {
+            GetBeanUtil.beanFactory= (ConfigurableListableBeanFactory) beanFactory;
+        }
+    }
+
+    public static void registerBean(String name,Object object){
+        beanFactory.registerSingleton(name,object);
+
+    }
+
+    public static void registerTask(String name,Object object){
+        ScheduledAnnotationBeanPostProcessor scheduledProcessor = applicationContext.getBean(ScheduledAnnotationBeanPostProcessor.class);
+        scheduledProcessor.postProcessAfterInitialization(object,name);
+    }
+
 }

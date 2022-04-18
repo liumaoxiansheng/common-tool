@@ -323,9 +323,6 @@ public class CommonFtpUtil {
         return null;
     }
 
-
-
-
     //下载
     public InputStream downloadFileFromFtp(String filename,String dirName)
             throws IOException {
