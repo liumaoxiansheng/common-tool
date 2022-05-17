@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * @ClassName MyRunner
- * @Description TODO 类描述
+ * @Description redis 统计排名
  * @Author tianhuan
  * @Date 2022/4/7
  **/
