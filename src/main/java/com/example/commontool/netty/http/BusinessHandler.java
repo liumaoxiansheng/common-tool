@@ -74,5 +74,8 @@ public class BusinessHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("连接的客户端地址:" + ctx.channel().remoteAddress());
+        System.out.println("isActive:" + ctx.channel().isActive());
+        System.out.println("localAddress:" + ctx.channel().localAddress());
+        System.out.println("eventLoop:" + ctx.channel().eventLoop());
     }
 }

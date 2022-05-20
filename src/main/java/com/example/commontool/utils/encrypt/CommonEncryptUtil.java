@@ -65,6 +65,15 @@ public class CommonEncryptUtil {
         return hexValue.toString();
     }
 
+    public static String md5EncryptSalt(String str){
+        String encryptStr = md5Encrypt(str);
+        if(encryptStr!=null ){
+            encryptStr = encryptStr + encryptStr.charAt(0)+encryptStr.charAt(2)+encryptStr.charAt(4);
+            encryptStr = md5Encrypt(encryptStr);
+        }
+        return encryptStr;
+    }
+
     /**
      * sha1加密操作
      *
@@ -186,6 +195,8 @@ public class CommonEncryptUtil {
         params.init(new IvParameterSpec(iv));
         return params;
     }
+
+
 
 
 //    public static String aesEncrypt(String content) {
