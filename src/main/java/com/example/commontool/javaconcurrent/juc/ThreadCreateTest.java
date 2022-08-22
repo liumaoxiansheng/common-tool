@@ -41,6 +41,7 @@ public class ThreadCreateTest {
     public static void callableCreate(){
         FutureTask<Integer> task = new FutureTask<>(new MyCallable());
         new Thread(task).start();
+      //  task.get();
     }
 
     public static void threadPoolCreate(){

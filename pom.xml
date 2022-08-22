@@ -135,6 +135,32 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.42.Final</version>
         </dependency>
+        <!--easy-poi-->
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
+        <!--jol对象内存布局-->
+        <!--mvn install:install-file -Dfile=jol-core-0.16.jar -DgroupId=org.openjdk.jol -DartifactId=jol-core -Dversion=0.16 -Dpackaging=jar-->
+        <!-- https://mvnrepository.com/artifact/org.openjdk.jol/jol-core -->
+        <!--mvn install:install-file -Dfile=jol-core-0.10.jar -DgroupId=org.openjdk.jol -DartifactId=jol-core -Dversion=0.10 -Dpackaging=jar-->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.10</version>
+        </dependency>
 
         <!--序列化-->
         <dependency>
@@ -152,9 +178,16 @@
             <artifactId>kryo-serializers</artifactId>
             <version>0.42</version>
         </dependency>
+        <!-- disruptor -->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.3.4</version>
+        </dependency>
     </dependencies>
 
     <build>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

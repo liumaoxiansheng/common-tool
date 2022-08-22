@@ -12,11 +12,11 @@ public class Test {
     private   int i2=0;
 
     public static void main(String[] args) {
-       // new Test().testCpu();
-        int hash=1566615;
-        int n=256;
-        System.out.println(hash%n);
-        System.out.println((n - 1) & hash);
+        new Test().testCpu();
+//        int hash=1566615;
+//        int n=256;
+//        System.out.println(hash%n);
+//        System.out.println((n - 1) & hash);
     }
 
     public void testCpu(){

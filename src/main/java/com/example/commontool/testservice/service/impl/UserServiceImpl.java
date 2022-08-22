@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
@@ -60,6 +61,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements IUs
     public void test() {
         User user = mapper.test("张三", 20);
         System.out.println("user = " + user);
+    }
+
+    public void testTransaction(){
+        DefaultTransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
+
+        mapper.insert(new User());
     }
 
 

@@ -12,9 +12,6 @@ import java.lang.reflect.Field;
  **/
 public class UnSafeFactory {
 
-    public static Unsafe getUnsafe(){
-       return Unsafe.getUnsafe();
-    }
 
     public static Unsafe getUnsafeReflection(){
         Field field = null;

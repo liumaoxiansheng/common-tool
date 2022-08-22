@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.example.commontool.**.mapper")
+//@MapperScan("com.example.commontool.**.mapper")
 public class CommonToolApplication {
 
     public static void main(String[] args) {

@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  **/
 @Service
 public class ProductServiceImpl {
-    @Autowired
+   // @Autowired
     private RedissonClient redissonClient;
 
     private String PRO_CACHE_PREFIX = "product_cache:";

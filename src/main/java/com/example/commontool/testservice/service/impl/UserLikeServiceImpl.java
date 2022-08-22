@@ -31,7 +31,7 @@ public class UserLikeServiceImpl implements IUserLikeService {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-    @Autowired
+   // @Autowired
     private RedissonClient redissonClient;
 
     @Override

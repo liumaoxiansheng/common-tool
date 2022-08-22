@@ -20,7 +20,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @Date 2022/4/7
  **/
 @Configuration
-@EnableCaching
+//@EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
     /**
      * retemplate相关配置
